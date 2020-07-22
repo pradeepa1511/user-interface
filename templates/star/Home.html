@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{%extends 'star/Base.html'%}
+{% block child_block %}
+<h1>ENTRY REQUEST SUBMISSION</h1>
+<form method = 'post'>
+	{{form.as_p}}
+	{% csrf_token %}
+	<input type="submit" class="btn btn-primary" value="submit">
+</form>
+{% endblock %}
+<html lang="en">
+<head>
+	<meta charset ="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+	
+</body>	
+</html>
