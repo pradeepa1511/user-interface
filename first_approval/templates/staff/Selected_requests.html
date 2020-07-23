@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>selected requests</title>
+</head>
+
+<body>
+    <h1>LIST OF SELECTED STUDENTS</h1>
+    <table class="table table-hover">
+
+        <thead>
+            <tr>
+                <th>NAME</th>
+                <th>AGE</th>
+                <th>SCHOOL NAME</th>
+                <th>TENTH MARK</th>
+                <th>TWELTH MARK</th>
+                <th>EMAIL</th>
+                <th>PHONE NUMBER</th>
+                <th>
+                    <center>#</center>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for Regapp in selectedStudents %}
+
+
+            <tr>
+
+                <th scope="row"> {{ Regapp.name }}</th>
+                <td>{{ Regapp.no }}</td>
+                <td>{{ Regapp.purpose_of_entry }}</td>
+                <td>{{ Regapp.person_to_be_met }}</td>
+                <td>-</td>
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+    </table>
+</body>
+
+</html>

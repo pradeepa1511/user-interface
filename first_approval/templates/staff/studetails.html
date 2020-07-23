@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>staff view</title>
+</head>
+
+<body>
+    <h1>REQUESTS ARE LISTED BELOW</h1>
+
+
+    <table class="table table-hover">
+
+        <thead>
+            <tr>
+                <th>NO</th>
+                <th>NAME</th>
+                <th>MOB</th>
+                <th>PURPOSE OF ENTRY</th>
+                <th>PERSON TO BE MET</th>
+                <th>
+                    <center>#</center>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for Regapp in Students %}
+            <tr>
+
+                <th scope="row"> {{ Regapp.name }}</th>
+                <td>{{ Regapp.no }}</td>
+                <td>{{ Regapp.purpose_of_entry }}</td>
+                <td>{{ Regapp.person_to_be_met }}</td>
+                <td>
+                    {% if students.status == "" %}
+                    <center>
+                        <form action="{% url 'accept_view' %}" method="post">
+                            {% csrf_token %}
+                            <input type="text" value="accept" name="decision" hidden>
+                            <input type="number" value="{{ students.id }}" name="student_id" hidden>
+                            <input type="submit" value="accept">
+                        </form>
+                        <form action="{% url 'accept_view' %}" method="post">
+                            {% csrf_token %}
+                            <input type="text" value="reject" name="decision" hidden>
+                            <input type="number" value="{{ students.id }}" name="student_id" hidden>
+                            <input type="submit" value="reject">
+                        </form>
+                        {% else %}
+                            The student's status is
+                            {{ Regapp.status }}
+                        {% endif %}
+                    </center>
+                </td>
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+</body>
+
+</html>
