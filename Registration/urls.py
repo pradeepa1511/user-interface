@@ -20,7 +20,7 @@ from Regapp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.form_view),
-    path('Regapp/',include('Regapp.urls')),
+    path('',include('Regapp.urls')),
     path('first_approval/',include('first_approval.urls')),
 
 ]

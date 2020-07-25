@@ -7,7 +7,7 @@ class Student(models.Model):
 	Mob = models.IntegerField()
 	Purpose_of_entry = models.CharField(max_length=64)
 	Person_to_be_met = models.CharField(max_length=25)
-
+	status=models.CharField(max_length=30, default="")
 
 
     

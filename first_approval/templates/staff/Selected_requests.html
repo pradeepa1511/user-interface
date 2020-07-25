@@ -14,13 +14,11 @@
 
         <thead>
             <tr>
+                <th>NO</th>
                 <th>NAME</th>
-                <th>AGE</th>
-                <th>SCHOOL NAME</th>
-                <th>TENTH MARK</th>
-                <th>TWELTH MARK</th>
-                <th>EMAIL</th>
-                <th>PHONE NUMBER</th>
+                <th>MOB</th>
+                <th>PURPOSE_OF_ENTRY</th>
+                <th>PERSON_TO_BE_MET</th>
                 <th>
                     <center>#</center>
                 </th>
@@ -28,15 +26,16 @@
         </thead>
         <tbody>
 
-            {% for Regapp in selectedStudents %}
+            {% for student in selectedStudents %}
 
 
             <tr>
 
-                <th scope="row"> {{ Regapp.name }}</th>
-                <td>{{ Regapp.no }}</td>
-                <td>{{ Regapp.purpose_of_entry }}</td>
-                <td>{{ Regapp.person_to_be_met }}</td>
+                <th scope="row"> {{ student.No }}</th>
+                <td>{{ student.Name }}</td>
+                <td>{{ student.Mob }}</td>
+                <td>{{ student.Purpose_of_entry }}</td>
+                <td>{{ student.Person_to_be_met }}</td>
                 <td>-</td>
             </tr>
 

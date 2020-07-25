@@ -28,31 +28,32 @@
         </thead>
         <tbody>
 
-            {% for Regapp in Students %}
+            {% for Student in Students %}
             <tr>
 
-                <th scope="row"> {{ Regapp.name }}</th>
-                <td>{{ Regapp.no }}</td>
-                <td>{{ Regapp.purpose_of_entry }}</td>
-                <td>{{ Regapp.person_to_be_met }}</td>
+                <th scope="row"> {{ Student.No }}</th>
+                <td>{{ Student.Name }}</td>
+                <td>{{ Student.Mob }}</td>
+                <td>{{ Student.Purpose_of_entry }}</td>
+                <td>{{ Student.Person_to_be_met }}</td>
                 <td>
-                    {% if students.status == "" %}
                     <center>
+                        {% if Student.status == "" %}
                         <form action="{% url 'accept_view' %}" method="post">
                             {% csrf_token %}
                             <input type="text" value="accept" name="decision" hidden>
-                            <input type="number" value="{{ students.id }}" name="student_id" hidden>
+                            <input type="number" value="{{ Student.id }}" name="student_id" hidden>
                             <input type="submit" value="accept">
                         </form>
                         <form action="{% url 'accept_view' %}" method="post">
                             {% csrf_token %}
                             <input type="text" value="reject" name="decision" hidden>
-                            <input type="number" value="{{ students.id }}" name="student_id" hidden>
+                            <input type="number" value="{{ Student.id }}" name="student_id" hidden>
                             <input type="submit" value="reject">
                         </form>
                         {% else %}
-                            The student's status is
-                            {{ Regapp.status }}
+                            Status:
+                            {{ Student.status }}
                         {% endif %}
                     </center>
                 </td>
